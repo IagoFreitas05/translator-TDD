@@ -19,14 +19,14 @@ public class TranslatorTest {
     }
 
     @Test
-    public void oneWordTranslate(){
+    public void TranslateOneWord(){
         translator.setTranslation("bom","good");
         assertFalse(translator.isEmpty());
         assertEquals("good", translator.translate("bom"));
     }
 
     @Test
-    public void twoWordTranslate(){
+    public void translateTwoWords(){
         translator.setTranslation("bom","good");
         translator.setTranslation("mal","bad");
         assertFalse(translator.isEmpty());
@@ -35,7 +35,7 @@ public class TranslatorTest {
     }
 
     @Test
-    public void twoWordTranslateForTheSameWord(){
+    public void translateOneWordForTwoTranslations(){
         translator.setTranslation("bom","good");
         translator.setTranslation("bom","nice");
         assertFalse(translator.isEmpty());
@@ -43,11 +43,21 @@ public class TranslatorTest {
     }
 
     @Test
-    public void sentenceTranslator(){
+    public void translateSentence(){
         translator.setTranslation("guerra","war");
         translator.setTranslation("é","is");
         translator.setTranslation("ruim","bad");
 
         assertEquals("war is bad", translator.translateSentence("guerra é ruim"));
+    }
+
+    @Test
+    public void translateSentenceForTwoTranslationsForOneWord(){
+        translator.setTranslation("paz","peace");
+        translator.setTranslation("é","is");
+        translator.setTranslation("bom","good");
+        translator.setTranslation("bom","nice");
+
+        assertEquals("peace is good", translator.translateSentence("paz é bom"));
     }
 }

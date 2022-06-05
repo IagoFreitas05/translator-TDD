@@ -26,8 +26,11 @@ public class Translate {
         String sentenceTranslated = "";
         for (String word : words) {
             String translated = translate(word);
+            if(translated.contains(","))
+                translated = translated.substring(0, translated.indexOf(","));
             sentenceTranslated += translated + " ";
         }
         return sentenceTranslated.trim();
     }
+
 }
