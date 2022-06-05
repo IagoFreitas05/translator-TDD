@@ -1,20 +1,25 @@
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
 
 public class TranslatorTest {
 
+    private Translate translator;
+
+    @Before
+    public void makeTranslator(){
+        this.translator = new Translate();
+    }
 
     @Test
     public void noWordTranslator(){
-        Translate translator = new Translate();
         assertTrue(translator.isEmpty());
     }
 
     @Test
     public void oneWordTranslate(){
-        Translate translator = new Translate();
         translator.setTranslation("bom","good");
         assertFalse(translator.isEmpty());
         assertEquals("good", translator.translate("bom"));
@@ -22,7 +27,6 @@ public class TranslatorTest {
 
     @Test
     public void twoWordTranslate(){
-        Translate translator = new Translate();
         translator.setTranslation("bom","good");
         translator.setTranslation("mal","bad");
         assertFalse(translator.isEmpty());
