@@ -25,12 +25,17 @@ public class Translate {
         String[] words = sentence.split(" ");
         String sentenceTranslated = "";
         for (String word : words) {
-            String translated = translate(word);
-            if(translated.contains(","))
-                translated = translated.substring(0, translated.indexOf(","));
+            String translated = getTheFirstTranslation(word);
             sentenceTranslated += translated + " ";
         }
         return sentenceTranslated.trim();
+    }
+
+    private String getTheFirstTranslation(String word){
+        String translated = translate(word);
+        if(translated.contains(","))
+            translated = translated.substring(0, translated.indexOf(","));
+        return translated;
     }
 
 }
