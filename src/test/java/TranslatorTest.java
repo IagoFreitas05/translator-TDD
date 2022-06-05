@@ -41,4 +41,13 @@ public class TranslatorTest {
         assertFalse(translator.isEmpty());
         assertEquals("good, nice", translator.translate("bom"));
     }
+
+    @Test
+    public void sentenceTranslator(){
+        translator.setTranslation("guerra","war");
+        translator.setTranslation("é","is");
+        translator.setTranslation("ruim","bad");
+
+        assertEquals("war is bad", translator.translateSentence("guerra é ruim"));
+    }
 }

@@ -10,7 +10,7 @@ public class Translate {
     }
 
     public void setTranslation(String word, String translation) {
-        if(translations.containsKey(word)){
+        if (translations.containsKey(word)) {
             translation = translate(word) + ", " + translation;
             this.translations.put(word, translation);
         }
@@ -19,5 +19,15 @@ public class Translate {
 
     public String translate(String word) {
         return this.translations.get(word);
+    }
+
+    public String translateSentence(String sentence) {
+        String[] words = sentence.split(" ");
+        String sentenceTranslated = "";
+        for (String word : words) {
+            String translated = translate(word);
+            sentenceTranslated += translated + " ";
+        }
+        return sentenceTranslated.trim();
     }
 }
