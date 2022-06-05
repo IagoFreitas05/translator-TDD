@@ -19,4 +19,14 @@ public class TranslatorTest {
         assertFalse(translator.isEmpty());
         assertEquals("good", translator.translate("bom"));
     }
+
+    @Test
+    public void twoWordTranslate(){
+        Translate translator = new Translate();
+        translator.setTranslation("bom","good");
+        translator.setTranslation("bad","mal");
+        assertFalse(translator.isEmpty());
+        assertEquals("good", translator.translate("bom"));
+        assertEquals("bad", translator.translate("bad"));
+    }
 }
