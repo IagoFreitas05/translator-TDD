@@ -10,6 +10,10 @@ public class Translate {
     }
 
     public void setTranslation(String word, String translation) {
+        if(translations.containsKey(word)){
+            translation = translate(word) + ", " + translation;
+            this.translations.put(word, translation);
+        }
         this.translations.put(word, translation);
     }
 

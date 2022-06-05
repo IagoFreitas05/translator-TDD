@@ -33,4 +33,12 @@ public class TranslatorTest {
         assertEquals("good", translator.translate("bom"));
         assertEquals("bad", translator.translate("mal"));
     }
+
+    @Test
+    public void twoWordTranslateForTheSameWord(){
+        translator.setTranslation("bom","good");
+        translator.setTranslation("bom","nice");
+        assertFalse(translator.isEmpty());
+        assertEquals("good, nice", translator.translate("bom"));
+    }
 }
