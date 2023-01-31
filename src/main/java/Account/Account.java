@@ -1,3 +1,5 @@
+package Account;
+
 public class Account {
 
     public static double DEPOSIT_FEE_PERCENTAGE = 0.02;
